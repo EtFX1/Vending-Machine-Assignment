@@ -1,24 +1,27 @@
 vending_machine_info = {
 
     #! item_code: [item_name, item_price]
-    "A1": ["Walkers (Ready Salted)", 0.50],
-    "A2": ["Walkers (Bacon Flavoured)", 0.50],
-    "B1": ["Snickers", 0.75],
-    "B2": ["Twix", 0.75],
-    "C1": ["Haribo (Starmix)", 0.40],
-    "C2": ["Skittles", 0.60],
-    "D1": ["Sandwich (Chicken & Bacon)", 1.20],
-    "D2": ["Sandwich (BLT)", 1.40],
-    "E1": ["Drink (Coca Cola)", 0.95],
-    "E2": ["Drink (Fanta)", 1.50]
+    "A1": ["Crisps (type 1)", 0.50],
+    "A2": ["Crisps (type 2)", 0.50],
+    "B1": ["Chocolate (type 1)", 0.75],
+    "B2": ["Chocolate (type 2)", 0.75],
+    "C1": ["Sweets (type 1)", 0.40],
+    "C2": ["Sweets (type 2)", 0.60],
+    "D1": ["Sandwich (type 1)", 1.20],
+    "D2": ["Sandwich (type 2)", 1.40],
+    "E1": ["Drink (type 1)", 0.95],
+    "E2": ["Drink (type 2)", 1.50]
 }
-
-# todo: make this thing like.... not ugly
-print(vending_machine_info)
 print()
 
+for key, value in vending_machine_info.items():
+    print(f"Code: {key} | Name: {value[0]} | Price: £{value[1]: .2f}")
+
+print()
 
 #! function to handle collecting user input
+
+
 def handleItemCode():
 
     while True:
@@ -50,8 +53,9 @@ def handleItemCode():
     # * calling the handlePrice function
     return (handlePayment(item_name, item_price))
 
-
 #! function to handle user payment
+
+
 def handlePayment(item_name, item_price):
 
     while True:
