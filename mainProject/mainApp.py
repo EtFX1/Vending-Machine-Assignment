@@ -1,16 +1,16 @@
 vending_machine_info = {
 
     #! item_code: [item_name, item_price]
-    "A1": ["Crisps (type 1)", 0.50],
-    "A2": ["Crisps (type 2)", 0.50],
-    "B1": ["Chocolate (type 1)", 0.75],
-    "B2": ["Chocolate (type 2)", 0.75],
-    "C1": ["Sweets (type 1)", 0.40],
-    "C2": ["Sweets (type 2)", 0.60],
-    "D1": ["Sandwich (type 1)", 1.20],
-    "D2": ["Sandwich (type 2)", 1.40],
-    "E1": ["Drink (type 1)", 0.95],
-    "E2": ["Drink (type 2)", 1.50]
+    "A1": ["Walkers", 0.50],
+    "A2": ["Doritos", 0.50],
+    "B1": ["M & Ms", 0.75],
+    "B2": ["Snickers", 0.75],
+    "C1": ["Twix", 0.40],
+    "C2": ["Skittles", 0.60],
+    "D1": ["Ham Sandwich", 1.20],
+    "D2": ["Chicken and Bacon Sandwich", 1.40],
+    "E1": ["Fanta", 0.95],
+    "E2": ["Coke", 1.50]
 }
 print()
 
@@ -70,8 +70,8 @@ def handlePayment(item_name, item_price):
             print()
             continue
 
-        # * handling the price
-        balance = round(item_price - user_pay, 1)
+        # * calculating if the user has more or less than the correct price ()
+        balance = round(item_price - user_pay, 2)
 
         #! checking whether the user has paid more or less than what is required
 
@@ -84,12 +84,13 @@ def handlePayment(item_name, item_price):
             continue
 
         # * returns the user's change if they've paid more
-        elif user_pay > item_price:
-            print(f"Your change is £{abs(balance)} ")
+        if user_pay > item_price:
+            # ? abs() changes negative values to positive
+            print(f"Your change is £{abs(balance): .2f} ")
             print()
 
-        # * if they've provided the exact amount
         else:
+            # * if they've provided the exact amount
             print("Exact amount paid. You're good to go!")
             print()
 
